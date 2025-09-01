@@ -8,17 +8,43 @@ packages:
   gitUsername: Rajni25Aug
   gitBranch: main
 - name: SSL_JDBC_Test
+  version: "1.0"
   gitServerName: kusiAWSStage1
   gitUrl: https://github.com/prabhakarsag
   gitUsername: Rajni25Aug
   gitBranch: main
 - name: JMS2waySSL
+  version: "1.0"
   gitServerName: kusiAWSStage1
   gitUrl: https://github.com/prabhakarsag
   gitUsername: Rajni25Aug
   gitBranch: main
 - name: JMSTest
+  version: "1.0"
   gitServerName: kusiAWSStage1
   gitUrl: https://github.com/prabhakarsag
   gitUsername: Rajni25Aug
   gitBranch: main
+services:
+- serviceName: project.siqajmsandgittest.integrations:JMS_JNDI_SSL
+  packages:
+  - name: SIQAJMSANDGITTestProject
+    version: "1.0"
+  - name: JMS2waySSL
+    version: "1.0"
+  - name: SSL_JDBC_Test
+    version: "1.0"
+  - name: JMSTest
+    version: "1.0"
+  - name: WmJDBCAdapter
+    version: 10.3.0.0.34
+    wpmServer: https://packages.webmethods.io
+    wpmRegistry: licensed
+- serviceName: publisher:publisher
+  packages:
+  - name: JMSTest
+    version: "1.0"
+- serviceName: pub.jms:send
+  packages:
+  - name: WmPublic
+    version: 11.1.0.0.2070
